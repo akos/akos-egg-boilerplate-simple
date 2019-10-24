@@ -1,0 +1,68 @@
+.DS_Store
+node_modules/
+npm-debug.log
+**/_test.js
+**/_test*
+# Logs
+logs
+*.log
+npm-debug.log*
+localLogs
+src/config/local.js
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Test
+test-reports
+coverage
+package-lock.json
+
+app.*.json
+!app.base.json
+.env
+
+
+# Dependency directories
+node_modules
+jspm_packages
+
+
+# Cache directory
+.npm
+.DS_Store
+.pursuit-cache
+.fontcustom-manifest.json
+
+# Optional REPL history
+.node_repl_history
+
+# Temporary directories or files
+tmp/
+*.pyc
+
+# Build directories
+public/
+download/
+upload/
+dist/
+**/demo/*.html
+
+# Editor or IDE setting directories
+.vscode/
+.idea/
+.webstorm/
+
+# vscode custom config
+
+# private test
+_*
+
+# 环境变量配置
+.env
+.env_*
+alias.config.js
+run/
+logs/egg
