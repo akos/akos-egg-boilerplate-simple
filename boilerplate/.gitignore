@@ -57,9 +57,6 @@ dist/
 
 # vscode custom config
 
-# private test
-_*
-
 # 环境变量配置
 .env
 .env_*

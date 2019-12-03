@@ -1,0 +1,61 @@
+{
+  "name": "{{name}}",
+  "version": "0.0.2",
+  "description": "{{description}}",
+  "author": "{{author}",
+  "main": "app.js",
+  "keywords": [
+    "akos",
+    "egg",
+    "node.js",
+    "javascript",
+    "vusion"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "chalk": "^2.4.2",
+    "debug": "^3.1.0",
+    "egg": "^2.23.0",
+    "egg-scripts": "^2.11.0",
+    "egg-view-nunjucks": "^2.2.0",
+    "is-type-of": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "koa-better-body": "~3.0.4",
+    "koa-body": "~4.1.1",
+    "lodash": "~4.17.15",
+    "module-alias": "^2.2.1",
+    "moment": "^2.24.0",
+    "mysql2": "^1.7.0",
+    "mz-modules": "^2.1.0",
+    "on-finished": "^2.3.0",
+    "path-to-regexp": "^3.1.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "egg-bin": "^4.3.5",
+    "egg-mock": "^3.13.1"
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "pkgfiles": "egg-bin pkgfiles",
+    "autod": "egg-bin autod",
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop"
+  },
+  "_moduleAliases": {
+    "@": "./app",
+    "~": "./"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
+}
