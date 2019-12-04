@@ -6,7 +6,7 @@ class HomeController extends Controller {
     async hello() {
         const ctx = this.ctx;
         // ctx.body = 'Hello World';
-        ctx.setBodyContent(200, 'Hello World')
+        ctx.setBodyContent(200, 'Hello World');
     }
 
     async page() {

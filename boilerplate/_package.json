@@ -13,6 +13,9 @@
   ],
   "license": "ISC",
   "dependencies": {
+    "akos-handcustomcode": "~0.0.1",
+    "akos-logger-promotion": "~0.0.6",
+    "akos-logger-simple": "^0.0.1",
     "bunyan": "^1.8.12",
     "chalk": "^2.4.2",
     "debug": "^3.1.0",
@@ -36,7 +39,9 @@
   },
   "devDependencies": {
     "egg-bin": "^4.3.5",
-    "egg-mock": "^3.13.1"
+    "egg-mock": "^3.13.1",
+    "eslint": "^6.7.1",
+    "eslint-config-vusion": "^3.0.2"
   },
   "scripts": {
     "dev": "egg-bin dev",
@@ -45,6 +50,7 @@
     "test": "npm run lint -- --fix && npm run test-local",
     "cov": "egg-bin cov",
     "lint": "eslint .",
+    "fix": "eslint . --fix",
     "pkgfiles": "egg-bin pkgfiles",
     "autod": "egg-bin autod",
     "start": "egg-scripts start --daemon",

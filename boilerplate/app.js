@@ -1,14 +1,17 @@
 // app.js
-"use strict";
+'use strict';
+
 require('module-alias/register');
-const handleCustomCode = require('@/extension/handleCustomCode');
-const loggerPromotion = require('@/extension/loggerPromotion');
-const path = require('path');
+const handleCustomCode = require('akos-handcustomcode');
+const loggerPromotion = require('akos-logger-promotion');
+const lodash = require('lodash');
+// node v12 对async await进行了改造，性能暂时未测，与旧版node相比bluebird的实现性能可提升70%
+global.Promise = require('bluebird').Promise;
 
 class AppBootHook {
     constructor(app) {
         this.app = app;
-     }
+    }
 
     configWillLoad() {
         // 此时 config 文件已经被读取并合并，但是还并未生效
@@ -23,14 +26,15 @@ class AppBootHook {
          * const directory = path.join(this.app.config.baseDir, 'app/extension/test');
          * this.app.loader.loadController({directory});
         */
-        loggerPromotion(this.app);
-        handleCustomCode(this.app, { requestId: true });
     }
 
     async didLoad() {
         // 所有的配置已经加载完毕
         // 可以用来加载应用自定义的文件，启动自定义的服务
         // 例如：创建自定义应用的示例
+        loggerPromotion(this.app);
+        handleCustomCode(this.app, { requestId: true });
+        this.app._ = lodash;
     }
 
     //
@@ -40,7 +44,6 @@ class AppBootHook {
 
         // 例如：从数据库加载数据到内存缓存
         // this.app.cacheData = await this.app.model.query(QUERY_CACHE_SQL);
-
 
         /* agent.js 使用举例*/
 
@@ -61,23 +64,24 @@ class AppBootHook {
          *  });
         */
     }
+
     //
     async didReady() {
         // 应用已经启动完毕
         // const ctx = await this.app.createAnonymousContext();
         // await ctx.service.Biz.request();
     }
+
     //
-     async serverDidReady() {
-     /*     // http / https server 已启动，开始接受外部请求
+    async serverDidReady() {
+        /*     // http / https server 已启动，开始接受外部请求
      *      // 此时可以从 app.server 拿到 server 的实例
-     * 
+     *
      *      this.app.server.on('timeout', socket => {
      *          // handle socket timeout
      *      });
     * */
     }
-    
 }
 
 module.exports = AppBootHook;
